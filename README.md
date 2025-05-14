@@ -1,1 +1,181 @@
-# -_-_-_-
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Галерея — Заклад вищої освіти</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+
+    /* Стилі для контейнера галереї */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 зображення в рядку */
+      gap: 15px;
+      justify-items:flex-start;
+      max-width: 12000px; /* Максимальна ширина контейнера */
+    }
+
+    /* Стилі для кожного зображення */
+    .gallery img {
+      width: 100%;
+      max-width: 350px;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Модальне вікно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Стрілочки */
+    .modal-prev, .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .modal-prev {
+      left: 10px;
+    }
+
+    .modal-next {
+      right: 10px;
+    }
+
+    .modal:active, .modal img:active {
+      cursor: zoom-out;
+    }
+
+  </style>
+</head>
+<!-- Шапка -->
+<header class="bg-primary text-white p-3 d-flex align-items-center">
+    <img src="images.logo.png" alt="Логотип" width="50" height="50" class="me-3" />
+    <h1 class="h4 m-0">Заклад вищої освіти</h1>
+  </header>
+
+  <!-- Меню -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Портал</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">Про сайт</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">Новини</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакти</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Контент галереї -->
+  <main class="container my-5">
+    <h2 class="mb-4">Галерея</h2>
+
+  <div class="gallery">
+    <!-- Автоматичне створення 20 зображень -->
+    <!-- Замініть на свої фото -->
+  </div>
+  
+  <!-- Модальне вікно -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Збільшене фото">
+      <span class="modal-prev" id="prev">&#10094;</span>
+      <span class="modal-next" id="next">&#10095;</span>
+    </div>
+  </div>
+  
+  <script>
+    // Автоматичне створення 20 зображень
+    const galleryContainer = document.querySelector('.gallery');
+    for (let i = 1; i <= 20; i++) {
+      const img = document.createElement('img');
+      img.src = `images.gallery${i}.jpg`;  // Замінити на свої зображення
+      img.alt = `Фото ${i}`;
+      img.dataset.index = i;  // Додаємо індекс для зображення
+      galleryContainer.appendChild(img);
+    }
+  
+    // Модальне вікно
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let currentIndex = 0;
+  
+    // Відкриття зображення
+    galleryContainer.addEventListener('click', function (e) {
+      if (e.target.tagName === 'IMG') {
+        currentIndex = parseInt(e.target.dataset.index) - 1; // Встановлюємо індекс зображення
+        modal.style.display = 'flex';
+        modalImg.src = e.target.src;
+      }
+    });
+  
+    // Закриття модального вікна
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+  
+    // Перехід до попереднього зображення
+    prevBtn.addEventListener('click', function (e) {
+      e.stopPropagation(); // Запобігаємо закриттю модального вікна
+      currentIndex = (currentIndex === 0) ? 19 : currentIndex - 1; // Зациклюємо на 20-му зображенні
+      modalImg.src = `images.gallery${currentIndex + 1}.jpg`; // Завантажуємо нове зображення
+    });
+  
+    // Перехід до наступного зображення
+    nextBtn.addEventListener('click', function (e) {
+      e.stopPropagation(); // Запобігаємо закриттю модального вікна
+      currentIndex = (currentIndex === 19) ? 0 : currentIndex + 1; // Зациклюємо на 1-му зображенні
+      modalImg.src = `images.gallery${currentIndex + 1}.jpg`; // Завантажуємо нове зображення
+    });
+  </script>
+  
+  </body>
+  </html>
