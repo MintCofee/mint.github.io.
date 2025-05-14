@@ -1,0 +1,124 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Заклад вищої освіти</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-primary text-white p-3 d-flex align-items-center">
+    <img src="images.logo.png" alt="Логотип" width="50" height="50" class="me-3" />
+    <h1 class="h4 m-0">Національний університет
+      "Полтавська політехніка імені Юрія Кондратюка"</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Портал</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">Про сайт</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">Новини</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакти</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Slider -->
+  <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images.slider1.jpg" class="d-block w-100" alt="Слайд 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images.slider2.jpg" class="d-block w-100" alt="Слайд 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images.slider3.jpg" class="d-block w-100" alt="Слайд 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Top News -->
+  <section class="container my-5">
+    <h2 class="mb-4">Останні новини</h2>
+    <div class="d-flex flex-row flex-nowrap overflow-auto gap-3">
+      <div class="card" style="min-width: 300px;">
+        <img src="images.news1.jpg" class="card-img-top" alt="Новина 1" width="250" height="300">
+        <div class="card-body">
+          <h5 class="card-title">Розпочато реєстрацію на складання ЄФВВ/ЄВІ/ЄВВ для вступу до магістратури та аспірантури.</h5>
+          <p class="card-text">2 травня розпочалася реєстрація осіб для участі в цьогорічних вступних випробуваннях до магістратури та аспірантури. Приймальна комісія Національного університету «Полтавська політехніка імені Юрія Кондратюка» реєструватиме вступників до 23 травня включно.</p>
+        </div>
+      </div>
+  
+      <div class="card" style="min-width: 300px;">
+        <img src="images.news2.jpg" class="card-img-top" alt="Новина 2" width="250" height="300">
+        <div class="card-body">
+          <h5 class="card-title">Сила підтримки: Центр ветеранського розвитку Полтавської політехніки долучився до фізкультурно-оздоровчого заходу для ветеранів «Об’єднані силою»</h5>
+          <p class="card-text">Науково-педагогічні працівники та студенти Полтавської політехніки доєдналися до фізкультурно-оздоровчого заходу «Об’єднані силою»...</p>
+        </div>
+      </div>
+
+      <div class="card" style="min-width: 300px;">
+        <img src="images.news3.jpg" class="card-img-top" alt="Новина 3" width="250" height="300">
+        <div class="card-body">
+          <h5 class="card-title">Полтавська політехніка відкрила Місяць обізнаності про ментальне здоров’я спеціальним ефіром «СенсоТека. Ти як?»</h5>
+          <p class="card-text">У Полтавській політехніці протягом травня проходить Місяць обізнаності про ментальне здоров’я під гаслом «Підтримай словом. Активуй дію» у рамках Всеукраїнської програми ментального здоров’я «Ти як?». Розпочався Місяць спеціальним ефіром «СенсоТека. Ти як?» у форматі онлайн-марафону.</p>
+        </div>
+      </div>
+  
+
+      <div class="card" style="min-width: 300px;">
+        <img src="images.news4.jpg" class="card-img-top" alt="Новина 4" width="250" height="300">
+        <div class="card-body">
+          <h5 class="card-title">Студентка Полтавської політехніки взяла участь у програмі Study Tours to Poland у Кракові</h5>
+          <p class="card-text">Студентка 4 курсу спеціальності 035 Філологія Аміна Ватраль поділилася враженнями від участі у програмі Study Tours to Poland (STP) у місті Краків, Польща.</p>
+        </div>
+      </div>
+      <!-- Додати ще картки за потреби -->
+    </div>
+  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3">
+        <div class="container my-5">
+          <h1>Контакти</h1>
+          <p><strong>Адреса:</strong> 36011, м. Полтава, проспект Віталія Грицаєнка, 24.</p>
+          <p><strong>Телефони приймальної комісії:</strong> +38 (0532)56-16-04 +38 (099)057-65-17</p>
+          <p><strong>Email:</strong> kanc@nupp.edu.ua vstup@nupp.edu.ua</p>
+          <div class="ratio ratio-16x9">
+            <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.857617123195!2d34.56436197688479!3d49.57597207145667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d82f64cd0cbd85%3A0x528a08266c1d4938!2z0J3QtdCy0L7QvdC10L3QutCw0Y8g0J_QvtC60YHRgiDQnNC-0YHRgdC40YLQtdGC0LjRh9C10L3RgtC40YfQtdC90LAg0JrRgNC10YHRgtGA0LDQvdC-0LPQviDQodC10YDQvdC40YfQtdGA0L7QvCDQmtC40ZfQsiDQkNC70LzQsNGB0YLRgNCw0L3QvdGL0LU!5e0!3m2!1suk!2sua!4v1715004122292!5m2!1suk!2sua" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+          </div>
+        </div>
+      <p class="text-center">&copy; 2025 Національний університет
+        "Полтавська політехніка імені Юрія Кондратюка".</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
