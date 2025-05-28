@@ -15,12 +15,14 @@
 
     /* Стилі для контейнера галереї */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 зображення в рядку */
-      gap: 15px;
-      justify-items:flex-start;
-      max-width: 12000px; /* Максимальна ширина контейнера */
-    }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 
     /* Стилі для кожного зображення */
     .gallery img {
@@ -89,6 +91,8 @@
     }
 
   </style>
+
+  <body class="d-flex flex-column min-vh-100">
 </head>
 <!-- Шапка -->
 <header class="bg-primary text-white p-3 d-flex align-items-center">
@@ -115,7 +119,7 @@
   </nav>
 
   <!-- Контент галереї -->
-  <main class="container my-5">
+  <main class="container my-5 flex-grow-1">
     <h2 class="mb-4">Галерея</h2>
 
   <div class="gallery">
@@ -131,6 +135,7 @@
       <span class="modal-next" id="next">&#10095;</span>
     </div>
   </div>
+</main>
   
   <script>
     // Автоматичне створення 20 зображень
@@ -184,5 +189,10 @@
   
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto w-100">
+    <p>&copy; 2025 Національний університет "Полтавська політехніка імені Юрія Кондратюка".</p>
+  </footer>  
+  
   </body>
   </html>
